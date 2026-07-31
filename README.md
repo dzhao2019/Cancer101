@@ -1,4 +1,4 @@
-# CancerBioinformatics101
+# Cancer101
 
 This repository centered on the foundational knowledge of cancer bioinformatics. 
 
@@ -7,7 +7,6 @@ This repository centered on the foundational knowledge of cancer bioinformatics.
 This repository is a collection of my learning materials on the core concepts of cancer bioinformatics. 
 It's designed to help me organize study notes, key resources, and foundational knowledge in this field.
 
-**_Important Note:_** This is a public repository. 
 Content focuses on theoretical concepts and learning materials.
 
 ## OUTLINE
