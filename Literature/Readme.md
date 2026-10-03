@@ -6,7 +6,7 @@ This folder contains reading notes and summaries of research articles, review pa
 ## Table of Contents
   
 ### 1. Foundational Concepts in Cancer Biology
-* [Hallmarks of Cancer](https://github.com/dzhao2019/CancerBioinformatics101/blob/main/Oncology_Lit_Review/Hallmarks%20of%20Cancer(2000).md)
+* [Hallmarks of Cancer](https://github.com/dzhao2019/Cancer101/blob/main/Literature/Hallmarks%20of%20Cancer(2000).md)
 * Tumor Microenvironment
 * Genomic Instability and Mutations
 * Epigenetics in Cancer
