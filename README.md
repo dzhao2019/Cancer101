@@ -8,7 +8,7 @@ A beginner-friendly repository for learning the **fundamentals of cancer biology
 
 | Folder | Contents |
 |---|---|
-| [`Course/`](Course/) | **Cancer Genomics for Pipeline Engineers** — a structured, self-paced 16-week course with lessons, exercises, quizzes, answer keys and Anki flashcards |
+| [`CancerBasics/`](CancerBasics/) | **Cancer Genomics for Pipeline Engineers** — a structured, self-paced 16-week course with lessons, exercises, quizzes, answer keys and Anki flashcards |
 | [`CancerGenomics/`](CancerGenomics/) | Topic notes on cancer genetics and genomics |
 | [`Literature/`](Literature/) | Key papers, reviews and publications |
 
@@ -30,20 +30,20 @@ A beginner-friendly repository for learning the **fundamentals of cancer biology
 - Common misconceptions
 - A worked example built on a real, well-known variant
 - A hands-on exercise using free tools and public data (Ensembl, UCSC, IGV, ClinVar, gnomAD, cBioPortal, COSMIC, VEP, VariantValidator)
-- A quiz (in `Course/quizzes/`) with a separate answer key (in `Course/answer_keys/`) for honest self-testing
-- 25 flashcards per module in `Course/flashcards.csv`
+- A quiz (in `CancerBasics/quizzes/`) with a separate answer key (in `CancerBasics/answer_keys/`) for honest self-testing
+- 25 flashcards per module in `CancerBasics/flashcards.csv`
 - Further reading, plus a **"facts to double-check"** log
 
 ### Course outline
 
 | Week | Module | Topic | Worked example | Status |
 |---|---|---|---|---|
-| 1 | [M01](Course/module_01_central_dogma.md) | DNA, genes and the central dogma | KRAS G12D: from VCF line to protein | ✅ |
-| 2 | [M02](Course/module_02_genome_organization.md) | Human genome organisation and reference genomes | TERT promoter C228T/C250T | ✅ |
-| 3–4 | [M03](Course/module_03_variant_types_hgvs.md) | Variation, mutation types and HGVS | EGFR exon 19 deletion | ✅ |
-| 5 | [M04](Course/module_04_germline_vs_somatic.md) | Germline vs somatic variation | TP53 R175H: one variant, five stories | ✅ |
-| 6 | [M05](Course/module_05_mutation_and_repair.md) | How mutations arise and are repaired (+ sequencing artifacts) | Three hypermutated colorectal cancers | ✅ |
-| 7 | [M06](Course/module_06_cancer_biology.md) | Cancer biology fundamentals: hallmarks, oncogenes, tumour suppressors, two hits | BRAF V600E across tissues | ✅ |
+| 1 | [M01](CancerBasics/module_01_central_dogma.md) | DNA, genes and the central dogma | KRAS G12D: from VCF line to protein | ✅ |
+| 2 | [M02](CancerBasics/module_02_genome_organization.md) | Human genome organisation and reference genomes | TERT promoter C228T/C250T | ✅ |
+| 3–4 | [M03](CancerBasics/module_03_variant_types_hgvs.md) | Variation, mutation types and HGVS | EGFR exon 19 deletion | ✅ |
+| 5 | [M04](CancerBasics/module_04_germline_vs_somatic.md) | Germline vs somatic variation | TP53 R175H: one variant, five stories | ✅ |
+| 6 | [M05](CancerBasics/module_05_mutation_and_repair.md) | How mutations arise and are repaired (+ sequencing artifacts) | Three hypermutated colorectal cancers | ✅ |
+| 7 | [M06](CancerBasics/module_06_cancer_biology.md) | Cancer biology fundamentals: hallmarks, oncogenes, tumour suppressors, two hits | BRAF V600E across tissues | ✅ |
 | 8–9 | M07 | Tumour evolution, heterogeneity, purity, ploidy and VAF | — | 🔜 |
 | 10 | M08 | Genomic biomarkers and signatures (TMB, MSI, HRD, COSMIC SBS, copy-number patterns) | — | 🔜 |
 | 11 | M09 | Hereditary cancer (BRCA1/2, Lynch, Li-Fraumeni; secondary findings) | — | 🔜 |
@@ -52,7 +52,7 @@ A beginner-friendly repository for learning the **fundamentals of cancer biology
 | 14 | M12 | Clinical interpretation (AMP/ASCO/CAP, ClinGen/CGC/VICC, ACMG/AMP; OncoKB, CIViC, ClinVar, gnomAD, COSMIC) | — | 🔜 |
 | 15–16 | M13 | Capstone: one tumour–normal case from FASTQ to interpreted report | — | 🔜 |
 
-Full syllabus, weekly time budget and prerequisite map: [`Course/00_course_overview.md`](Course/00_course_overview.md)
+Full syllabus, weekly time budget and prerequisite map: [`CancerBasics/00_course_overview.md`](CancerBasics/00_course_overview.md)
 
 ### Cancer types covered (M11 field guide + spotlights throughout)
 
@@ -86,9 +86,9 @@ flowchart TD
 
 ## How to use the course
 
-1. **Start with** [`Course/00_course_overview.md`](Course/00_course_overview.md).
+1. **Start with** [`CancerBasics/00_course_overview.md`](CancerBasics/00_course_overview.md).
 2. **Each week:** read the module, do the exercise, then take the quiz *before* opening its answer key.
-3. **Flashcards:** import `Course/flashcards.csv` into Anki (*File → Import*; fields `Front`, `Back`, `Tags`). Tags `M01`–`M13` let you study one module at a time.
+3. **Flashcards:** import `CancerBasics/flashcards.csv` into Anki (*File → Import*; fields `Front`, `Back`, `Tags`). Tags `M01`–`M13` let you study one module at a time.
 4. **Exercises** use free web tools. Optional parts use your own BAM/VCF files — only do those if your data governance allows it, and never commit patient data to this repository.
 
 ---
@@ -125,7 +125,7 @@ Module-specific papers are listed at the end of each module. See also [`Literatu
 ```
 Cancer101/
 ├── README.md
-├── Course/
+├── CancerBasics/
 │   ├── 00_course_overview.md
 │   ├── module_01_central_dogma.md
 │   ├── module_02_genome_organization.md
