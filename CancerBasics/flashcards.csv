@@ -1,0 +1,151 @@
+Front,Back,Tags
+What does 'antiparallel' mean for DNA strands?,"The two strands run in opposite directions: one 5′→3′, the other 3′→5′.",M01 dna_structure
+Which bases pair in DNA?,"A with T, G with C. In RNA, U replaces T, so A pairs with U.",M01 dna_structure
+Purines vs pyrimidines?,"Purines (two rings): A, G. Pyrimidines (one ring): C, T (U in RNA).",M01 dna_structure
+Reverse complement of 5′-ATGACTGAA-3′?,"5′-TTCAGTCAT-3′ (complement each base, then reverse so it reads 5′→3′).",M01 dna_structure
+Which strand does the reference genome FASTA store?,Only the forward (+) strand of each chromosome; the − strand is implied as its reverse complement.,M01 reference pipeline
+SAM FLAG 0x10 (16) means…,The read aligned to the reverse strand; SEQ and QUAL are stored reverse-complemented to match the + strand.,M01 pipeline bam
+Why do strand-bias filters exist (e.g. in FilterMutectCalls)?,True variants are usually supported by reads from both orientations; artifacts often appear on only one.,M01 pipeline mutect2
+Define a gene (working definition).,"A region of DNA transcribed into a functional RNA; for protein-coding genes, that RNA is translated into protein.",M01 gene_structure
+Exon vs intron?,Exons are kept in the mature mRNA (and can include UTRs); introns are transcribed but removed by splicing.,M01 gene_structure
+What is the CDS?,Coding sequence: the exonic bases from the start codon to the stop codon that encode the protein.,M01 gene_structure
+What are UTRs?,Untranslated regions of the mRNA: the 5′ UTR before the start codon and the 3′ UTR after the stop. They are exonic but not translated.,M01 gene_structure
+Start codon and stop codons (DNA letters)?,"Start: ATG (Met). Stops: TAA, TAG, TGA.",M01 genetic_code
+Template strand vs coding strand?,RNA polymerase reads the template strand; the RNA matches the coding (sense) strand with U for T. Annotation and c. notation use the coding strand.,M01 transcription
+Canonical splice-site dinucleotides?,"Introns almost always start with GT (splice donor, 5′ splice site) and end with AG (splice acceptor, 3′ splice site).",M01 splicing
+How do spliced RNA-seq aligners represent an intron in a read?,"With the CIGAR operator N (skipped reference region), e.g. 50M2000N50M.",M01 pipeline rna
+What does 'degenerate genetic code' mean?,"Most amino acids are encoded by more than one codon, often differing at the third position, so many third-position changes are synonymous.",M01 genetic_code
+"How many codons, sense codons and stops?","64 codons: 61 encode the 20 amino acids, 3 are stop codons.",M01 genetic_code
+What is a reading frame?,"One way of dividing a sequence into consecutive codons; each strand has 3, giving 6 in total.",M01 genetic_code
+Which c. positions form codon n?,c.(3n−2) to c.3n. Example: codon 12 = c.34–c.36.,M01 coordinates
+What does c.1 refer to?,The A of the ATG start codon in a specific transcript; c. counts only coding bases and skips introns.,M01 coordinates hgvs
+BED vs VCF coordinates?,"BED is 0-based, half-open (positions count from 0; the end coordinate is not included); VCF and GTF are 1-based, inclusive. VCF POS = BED start + 1.",M01 coordinates pipeline
+KRAS G12D: c. and p. notation?,"c.35G>A, p.Gly12Asp (p.G12D): codon GGT→GAT. On GRCh38 it appears in the VCF as chr12:25245350 C>T (KRAS is on the − strand).",M01 worked_example kras
+Why does a − strand gene's VCF change look 'different' from the report?,"The VCF shows the + strand; the report uses the gene's coding strand, so bases are complemented and c. runs opposite to genomic coordinates.",M01 coordinates pipeline
+What is MANE Select?,"One representative transcript per protein-coding gene, with identical RefSeq (NM_) and Ensembl (ENST) versions that align perfectly to GRCh38; the recommended default for clinical reporting.",M01 transcripts
+What is MANE Plus Clinical?,Extra transcripts for genes where MANE Select alone cannot describe all known pathogenic/likely pathogenic variants.,M01 transcripts
+What is a nucleosome?,~147 bp of DNA wrapped around an octamer of histone proteins; the basic unit of chromatin packaging.,M02 chromatin
+Euchromatin vs heterochromatin?,"Euchromatin: open, gene-rich, actively transcribed. Heterochromatin: compact, gene-poor, quiet; constitutive heterochromatin (e.g. centromeres) is repeat-rich.",M02 chromatin
+Why can't standard WGS detect MGMT promoter methylation?,"Methylation is an epigenetic mark on the DNA, not a change in sequence; WGS reads sequence only (bisulfite or methylation-aware methods are needed).",M02 chromatin pipeline gbm
+What is a centromere and what is it made of?,The chromosome constriction where sister chromatids join and spindle fibres attach; built from huge arrays of ~171 bp α-satellite repeats.,M02 chromosome
+p arm vs q arm?,"p = short arm, q = long arm, on either side of the centromere. Cytobands are named arm + region + band, e.g. 17p13.1 (TP53).",M02 chromosome
+"Which is shorter, chr21 or chr22?",chr21 (~46.7 Mb) is shorter than chr22 (~50.8 Mb); the numbering reflects historical size estimates.,M02 chromosome
+What is chromosomal instability (CIN)?,"Ongoing mis-segregation of chromosomes during division, giving cell-to-cell karyotype variation; common in solid tumours.",M02 ploidy cancer
+What is whole-genome doubling and why does it matter for VAF?,"A tumour copies its entire genome once, so the baseline copy number becomes ~4 instead of 2, changing expected VAFs.",M02 ploidy vaf
+Philadelphia chromosome?,"t(9;22)(q34;q11), fusing BCR (chr22) to ABL1 (chr9); the defining lesion of CML and the target of imatinib.",M02 cancer cml
+Chromosome-arm hallmark of IDH-wildtype glioblastoma?,+7/−10: gain of chromosome 7 with loss of chromosome 10.,M02 cancer gbm
+Hyperdiploid myeloma?,"Gains of odd-numbered chromosomes (3, 5, 7, 9, 11, 15, 19, 21); seen in about half of myeloma cases.",M02 cancer myeloma
+What is the end-replication problem?,"DNA polymerase can't fully copy linear chromosome ends, so telomeres shorten with each division until cells senesce or die.",M02 telomeres
+How do cancers maintain telomeres?,"~85–90% reactivate telomerase (TERT + TERC); ~10–15% use ALT (recombination-based), associated with ATRX/DAXX loss.",M02 telomeres cancer
+TERT promoter C228T / C250T: mechanism?,They create new ETS (GABP) transcription-factor binding sites that reactivate TERT — non-coding drivers of replicative immortality.,M02 tert worked_example
+TERT C228T: name origin and GRCh38 VCF appearance?,"Named after GRCh37 chr5:1,295,228; in GRCh38 it is chr5:1,295,113 and appears as G>A because TERT is on the − strand (c.-124C>T).",M02 tert coordinates
+Pseudoautosomal regions (PARs)?,Short regions at the tips of X and Y with identical sequence; males are diploid there. GRCh38 analysis sets mask the chrY copies.,M02 sex_chromosomes pipeline
+Mitochondrial genome basics?,"16,569 bp circular genome, 37 genes, maternally inherited, hundreds to thousands of copies per cell; GRCh38 chrM = rCRS.",M02 mtdna
+What are NUMTs and why do they matter?,Nuclear insertions of mitochondrial DNA; they attract mis-mapped mtDNA reads and create false nuclear variant calls.,M02 mtdna pipeline
+Segmental duplication?,A block >1 kb duplicated elsewhere with >90% identity; ~5% of the genome; causes ambiguous mapping and MAPQ 0.,M02 repeats mapping
+Processed vs unprocessed pseudogene?,Processed: reverse-transcribed mRNA copy without introns (e.g. PTENP1). Unprocessed: copy made by genomic duplication (e.g. PMS2CL).,M02 repeats pseudogenes
+Why is PMS2 hard to sequence?,"Its 3′ exons are nearly identical to the pseudogene PMS2CL, so short reads get MAPQ 0; labs confirm with gene-specific long-range PCR.",M02 mapping lynch
+What does MAPQ 0 mean in BWA output?,"The read aligns equally well to two or more locations, so placement is ambiguous.",M02 mapping pipeline
+What is T2T-CHM13?,"The first complete, gapless human genome assembly (2022), including centromeres and acrocentric p arms.",M02 reference
+No-alt vs alt-aware analysis set?,"No-alt: ALT loci removed so reads don't split MAPQ. Alt-aware: ALTs kept, with an .alt file so BWA handles them correctly.",M02 reference pipeline
+Three ways liftover between builds can go wrong?,The region is absent in the new build; the REF base differs between builds; strand flips or duplicated regions map ambiguously.,M02 reference liftover
+SNV vs MNV vs indel vs SV (size conventions)?,"SNV: 1 bp substitution. MNV: adjacent bases changed in one event. Indel: 1–49 bp insertion/deletion. SV: ≥50 bp (a detection convention, not biology).",M03 variant_classes
+Six substitution classes (pyrimidine convention)?,"C>A, C>G, C>T, T>A, T>C, T>G — each also covers its reverse complement (e.g. C>T = G>A).",M03 substitutions
+Why is C>T at CpG so common?,"Methylated cytosine at CpG can spontaneously deaminate to thymine; this happens steadily with time, like a molecular clock.",M03 substitutions biology
+What mutational process produces CC>TT doublets?,"UV light, which links adjacent pyrimidines; typical of sun-exposed skin cancers.",M03 substitutions biology
+Expected Ti/Tv for germline WGS calls?,"About 2.0–2.1 (higher, ~3, in exomes). Much lower suggests artifacts.",M03 pipeline qc
+Missense vs nonsense vs frameshift?,Missense: one amino acid swapped. Nonsense: codon becomes a stop. Frameshift: indel not a multiple of 3 shifts the reading frame.,M03 consequences
+What is nonsense-mediated decay (NMD)?,mRNA surveillance that destroys transcripts with a premature stop more than ~50–55 nt upstream of the last exon–exon junction.,M03 consequences biology
+When does a nonsense variant escape NMD?,When the premature stop is in the last exon or within ~50–55 nt of the last exon–exon junction; a truncated protein may then be made.,M03 consequences biology
+Contact vs structural TP53 mutations?,"Contact (e.g. R248, R273): residues that touch DNA directly. Structural (e.g. R175H): misfold the DNA-binding domain.",M03 tp53 biology
+Why are TP53 mutations mostly missense?,"p53 is a tetramer, so mutant subunits act dominant-negatively; some also gain new functions.",M03 tp53 biology
+What does IDH1 R132H do?,"A neomorphic missense change: the enzyme gains a new activity, producing the oncometabolite 2-hydroxyglutarate.",M03 missense biology
+The 20/20 rule?,Oncogene if >20% of mutations are recurrent missense; tumour suppressor if >20% are inactivating/truncating (Vogelstein 2013).,M03 drivers
+Oncogene vs tumour suppressor mutation patterns?,"Oncogenes: recurrent hotspots, in-frame indels, amplifications, fusions. TSGs: truncations, splice variants and deletions scattered across the gene.",M03 drivers
+Canonical splice-site positions?,Intron +1/+2 (GT donor) and −1/−2 (AG acceptor). Variants there usually cause exon skipping or cryptic site use.,M03 splicing
+MET exon 14 skipping: why oncogenic?,"Skipping removes the CBL docking site, so MET isn't tagged for degradation and accumulates as an active kinase.",M03 splicing lung
+Gain vs amplification vs deep deletion?,Gain: a few extra copies. Amplification: many focal copies (e.g. ERBB2). Deep deletion: both copies lost (e.g. CDKN2A).,M03 cnv
+What is copy-neutral LOH and how is it detected?,"Two copies, both from one parent; depth is unchanged, so only B-allele frequency at het SNPs reveals it.",M03 cnv loh
+What is ecDNA?,"Extrachromosomal circular DNA carrying amplified oncogenes; segregates unevenly, letting copy number change fast (active research).",M03 cnv biology
+NAHR vs NHEJ/MMEJ at SV breakpoints?,NAHR: recombination between similar repeats (breakpoints in segdups). NHEJ/MMEJ: direct joining of ends with no or short microhomology.,M03 sv mechanisms
+Read evidence for SVs?,"Discordant pairs (odd insert size/orientation or mates on another chromosome), split reads (soft clips + SA tag), depth changes.",M03 sv pipeline
+Two ways fusions are oncogenic?,"1) Kinase fusion with a dimerising 5′ partner → constitutive kinase (BCR::ABL1, EML4::ALK). 2) Promoter/enhancer swap → oncogene overexpression (TMPRSS2::ERG, IGH::MYC).",M03 fusions
+Why does RNA help confirm fusions?,Genomic breakpoints are usually intronic; RNA shows the exon–exon junction and whether the transcript is in frame and expressed.,M03 fusions wgts
+HGVS 3′ rule vs VCF normalisation?,HGVS shifts ambiguous indels to the most 3′ position of the transcript; VCF left-aligns on the + strand. They agree for − strand genes.,M03 hgvs
+What do parentheses in p.(Gly12Asp) mean?,"The protein change is predicted from DNA/RNA, not experimentally observed.",M03 hgvs
+EGFR exon 19 deletion: biology?,"In-frame deletion of ELREA (746–750) holds the αC-helix 'on', activating EGFR without ligand; typically TKI-sensitive.",M03 worked_example egfr
+Germline vs somatic variant?,"Germline: present from the zygote, in every cell, heritable. Somatic: arose after the zygote, in one cell's clone, not inherited.",M04 origin
+De novo variant?,"A germline variant new in the child, arising in a parental egg or sperm; in all the child's cells but absent from both parents.",M04 origin
+Mosaicism?,"A post-zygotic variant arising in early development, present in a subset of cells, possibly across several tissues.",M04 origin
+Germline vs somatic variant counts per genome?,"Germline: ~4–5 million differences from the reference. Somatic in a tumour: usually thousands to hundreds of thousands — germline outnumbers somatic ~100–1,000×.",M04 numbers
+Expected VAF of a clonal somatic het mutation (diploid region)?,About purity ÷ 2 (e.g. 0.30 at 60% purity); absent from the normal.,M04 vaf
+Germline het + LOH in the tumour: VAF pattern?,"Normal ~0.5; tumour pushed towards 1 (ALT kept) or 0 (ALT lost), depending on purity.",M04 vaf loh
+What is a matched normal for?,"Removing the patient's own germline variants (including rare ones) and patient-specific noise, leaving tumour-specific mutations.",M04 matched_normal
+Main role of a panel of normals?,Flag recurrent technical artifacts seen across many unrelated normals processed with the same pipeline (FILTER panel_of_normals).,M04 pon mutect2
+Role of the germline resource (e.g. gnomAD) in Mutect2?,Population allele frequencies act as prior evidence that an allele is germline (FILTER germline).,M04 mutect2
+What does FILTER normal_artifact mean?,"ALT-supporting reads were seen in the matched normal, arguing against a tumour-specific call.",M04 mutect2
+What is CHIP?,Clonal haematopoiesis of indeterminate potential: an age-related blood clone with a leukaemia-associated mutation (VAF ≥2%) without blood cancer.,M04 chip
+Most common CHIP genes?,"DNMT3A, TET2, ASXL1; PPM1D and TP53 enriched after chemotherapy or radiotherapy.",M04 chip
+Why is CHIP a problem for tumour-only and cfDNA testing?,"Most cfDNA and many sample leukocytes come from blood, so CHIP mutations look like tumour 'somatic' calls.",M04 chip pipeline
+What is tumour-in-normal (TiN) contamination?,Tumour cells/DNA in the normal sample; true somatic mutations show small proportional normal VAFs and get filtered (false negatives).,M04 tin
+Why is blood a poor normal in blood cancers?,"The cancer cells circulate in the blood, so the 'normal' contains tumour DNA. Use skin fibroblasts, nails or sorted non-tumour cells.",M04 tin heme
+What is germline leakage?,A rare germline variant called somatic because the normal had low coverage and the allele is missing from population databases.,M04 failure_modes
+How does ancestry affect somatic calling?,"Under-represented ancestries have more rare variants missing from gnomAD, raising germline leakage risk.",M04 failure_modes equity
+Signature of cross-individual contamination?,Many low-VAF 'somatic' calls at common germline SNP sites; quantified by GetPileupSummaries + CalculateContamination.,M04 contamination
+Do normal tissues carry somatic driver mutations?,"Yes. With age, normal tissues (e.g. oesophagus, skin, blood) fill with clones carrying cancer-gene mutations — a driver alone isn't cancer.",M04 biology normal_tissue
+"TP53 R175H: tumour 0.50, normal 0.49?","Germline heterozygous — possible Li-Fraumeni syndrome; follow the germline-findings policy, not silent filtering.",M04 worked_example tp53
+"TP53 R175H: tumour 0.30, normal 0.04?",Likely somatic with tumour-in-normal contamination; check the normal source and estimate TiN before discarding.,M04 worked_example tp53
+"TP53 R175H: tumour 0.02, normal 0.06?","Likely a CHIP clone in blood (enriched after chemotherapy), not tumour-derived.",M04 worked_example tp53 chip
+Why is tumour–normal sequencing also a germline test?,"The normal genome reveals inherited predisposition variants (e.g. BRCA1/2, Lynch genes, TP53) affecting the patient and relatives.",M04 germline_findings
+Steps before returning an incidental germline finding?,"Check consent and lab policy, confirm in an accredited clinical test, refer to genetic counselling, verify sample identity.",M04 germline_findings
+Li-Fraumeni syndrome?,"An inherited cancer-predisposition syndrome caused by germline pathogenic TP53 variants, with very high lifetime cancer risk.",M04 hereditary tp53
+"A mutation, in one sentence?",DNA damage or a replication error that escaped repair and was fixed in place by replication.,M05 concepts
+What does CpG 5mC deamination produce?,"C>T at CpG (T:G mismatch); a steady, clock-like process (SBS1).",M05 sources
+What does 8-oxoguanine cause?,"It pairs with A, giving G>T (C>A); BER enzymes OGG1 and MUTYH normally prevent this (SBS18; SBS36 with MUTYH loss).",M05 sources ber
+APOBEC mutational pattern?,"APOBEC3A/3B deaminate C in single-stranded DNA at TCW motifs → C>T and C>G, often clustered (kataegis); SBS2 and SBS13.",M05 sources apobec
+UV signature?,"C>T at dipyrimidines and CC>TT doublets from pyrimidine dimers (SBS7a/b, DBS1).",M05 sources uv
+Tobacco signature?,"C>A from bulky guanine adducts (e.g. benzo[a]pyrene), with transcriptional strand bias (SBS4).",M05 sources tobacco
+"What does MGMT do, and why does it matter in GBM?",Directly removes O6-methylguanine. MGMT promoter methylation silences it and predicts better temozolomide response.,M05 repair gbm
+Base excision repair (BER) fixes…?,"Single damaged bases (8-oxoG, uracil, small alkylations) and single-strand breaks; uses glycosylases, APE1, POLB, PARP1.",M05 repair
+Nucleotide excision repair (NER) fixes…?,"Bulky helix-distorting lesions (UV dimers, tobacco adducts). Defective in xeroderma pigmentosum.",M05 repair
+Mismatch repair (MMR) genes and job?,"MLH1, MSH2, MSH6, PMS2 (EPCAM deletions silence MSH2); fix mismatches and slippage loops after replication.",M05 repair mmr
+Homologous recombination (HR): when and how?,"Repairs double-strand breaks in S/G2 using the sister chromatid as an accurate template; BRCA1, BRCA2, PALB2, RAD51.",M05 repair hr
+NHEJ vs MMEJ?,"NHEJ: directly ligates broken ends (Ku, DNA-PKcs, LIG4), any cell-cycle phase. MMEJ: back-up joining using microhomology via Pol θ (POLQ), leaving microhomology deletions.",M05 repair dsb
+Caretaker vs gatekeeper tumour suppressors?,"Caretakers (repair genes) raise the mutation rate when lost; gatekeepers (APC, RB1) directly control proliferation.",M05 concepts
+Genomic scar of MMR loss?,"MSI: many ±1 bp indels in microsatellites, hypermutation, MMR SBS signatures (6/15/26/44) and ID1/ID2.",M05 mmr msi
+Most common cause of MSI in colorectal cancer?,"Sporadic MLH1 promoter hypermethylation, often with BRAF V600E; Lynch syndrome is a minority.",M05 mmr crc
+POLE exonuclease hotspot effect?,"Loss of proofreading → ultramutation (often >100 mut/Mb) with C>A at TCT and C>T at TCG, usually MSS (SBS10a/b).",M05 pole
+Genomic scars of HR deficiency?,"Microhomology deletions (ID6), SBS3, large-scale LOH/allelic-imbalance scars; small tandem duplications with BRCA1 loss.",M05 hrd
+Synthetic lethality with PARP inhibitors?,Trapped PARP → collapsed forks → double-strand breaks that HR-deficient (BRCA) cells can't repair → death; normal cells survive.,M05 hrd parp
+BRCA reversion mutation?,"A second mutation restoring the reading frame of a mutant BRCA1/2, restoring HR → PARPi/platinum resistance.",M05 hrd resistance
+Why are IGH translocations common in B-cell cancers?,"B cells deliberately break and mutate antibody genes (V(D)J recombination, class switching, AID); errors join IGH to oncogenes.",M05 sources heme
+FFPE artifact pattern?,Low-VAF C>T (G>A) across many contexts from formalin-induced cytosine deamination; UDG treatment reduces it.,M05 artifacts
+Library-prep oxidation artifact pattern?,"Low-VAF G>T (C>A) from 8-oxoG created during shearing, with read-orientation bias.",M05 artifacts
+Strand bias vs orientation bias?,Strand bias: ALT only on reads aligned to one reference strand. Orientation bias: ALT only in one F1R2/F2R1 class — damage on one original strand.,M05 artifacts pipeline
+Mutect2 read-orientation workflow?,Mutect2 --f1r2-tar-gz → LearnReadOrientationModel → FilterMutectCalls --ob-priors; failing calls get FILTER orientation.,M05 pipeline mutect2
+Three hypermutated CRCs: how to tell MMR loss from POLE?,MMR loss: many homopolymer indels (MSI-H). POLE: extreme SNV burden with few indels (MSS) and TCT/TCG contexts.,M05 worked_example crc
+Six original hallmarks (2000)?,Self-sufficiency in growth signals; insensitivity to anti-growth signals; evading apoptosis; limitless replicative potential; sustained angiogenesis; tissue invasion and metastasis.,M06 hallmarks
+2011 hallmark additions?,Emerging hallmarks: reprogramming energy metabolism; avoiding immune destruction. Enabling characteristics: genome instability and mutation; tumour-promoting inflammation.,M06 hallmarks
+Proto-oncogene vs oncogene?,"Proto-oncogene: normal growth-promoting gene. Oncogene: its gain-of-function, cancer-causing form.",M06 oncogenes
+Oncogene vs tumour suppressor dosage?,Oncogenes usually need one activated copy (dominant in the cell); TSGs usually need both copies lost (two hits).,M06 oncogenes tsg
+What is haploinsufficiency?,Losing one copy of a gene is enough to have an effect; some TSGs (e.g. PTEN) are dose-sensitive.,M06 tsg
+What is oncogene addiction?,"A tumour's dependence on one activated oncogene, so blocking it causes strong responses (BCR::ABL1, EGFR, ALK).",M06 therapy
+RAS–MAPK relay order?,RTK (EGFR etc.) → RAS → RAF (BRAF) → MEK → ERK → proliferation genes.,M06 pathways
+What does NF1 do?,A RAS-GAP that switches RAS off; its loss keeps RAS active (tumour suppressor).,M06 pathways
+PI3K–AKT pathway and PTEN?,PI3K (PIK3CA) makes PIP3 to activate AKT/mTOR; PTEN removes the phosphate to switch it off. PIK3CA gain or PTEN loss both activate the pathway.,M06 pathways
+Rb restriction-point switch?,"Cyclin D–CDK4/6 phosphorylates Rb, releasing E2F to start S phase; p16 (CDKN2A) inhibits CDK4/6.",M06 cell_cycle
+Why does RB1 loss predict CDK4/6 inhibitor resistance?,CDK4/6 inhibitors work by keeping Rb unphosphorylated and active; without Rb there is nothing to hold E2F.,M06 cell_cycle therapy
+CDKN2A: two proteins?,"p16INK4a (inhibits CDK4/6 → Rb pathway) and p14ARF (inhibits MDM2 → p53 pathway), from different first exons and reading frames.",M06 cell_cycle p53
+p53 responses to stress?,"Cell-cycle arrest (via p21), apoptosis (PUMA, BAX) or senescence; normally kept low by MDM2.",M06 p53
+Ways cancers disable p53?,"TP53 mutation, MDM2 amplification, CDKN2A/ARF loss, viral proteins (HPV E6).",M06 p53
+BCL2 in cancer?,"Anti-apoptotic protein overexpressed via t(14;18) in follicular lymphoma; inhibited by venetoclax (CLL, AML).",M06 apoptosis heme
+Knudson's two-hit evidence?,Hereditary retinoblastoma is bilateral and earlier; sporadic is unilateral and later → two hits needed; gene = RB1 (13q14).,M06 two_hit
+Mechanisms of the second hit?,"Second mutation, deletion, chromosome/arm loss, mitotic recombination (copy-neutral LOH), promoter methylation.",M06 two_hit loh
+Which second-hit mechanism is invisible to WGS?,"Promoter methylation (e.g. MLH1, CDKN2A); needs methylation assays or RNA expression.",M06 two_hit pipeline
+TSG mutation VAF clue for LOH?,A heterozygous-looking TSG mutation with VAF well above purity/2 suggests the wild-type allele was lost.,M06 loh vaf
+Driver vs passenger?,Driver: gives a selective growth advantage. Passenger: present in the expanding cell but neutral. Most mutations are passengers.,M06 drivers
+How many drivers in a typical solid tumour?,Roughly two to eight (Vogelstein et al. 2013).,M06 drivers
+Evidence for a driver?,"Recurrence above background, dN/dS > 1, hotspot or truncation patterns, functional data, curated databases (Cancer Gene Census, OncoKB).",M06 drivers
+What does mutual exclusivity suggest?,Genes whose mutations rarely co-occur often act in the same pathway (e.g. KRAS/BRAF; TP53/MDM2).,M06 pathways cohorts
+BRAF V600E mechanism?,"Glutamate mimics activation-segment phosphorylation → constitutive, RAS-independent monomeric kinase (class I).",M06 worked_example braf
+BRAF V600E in naevi teaches what?,Oncogene-induced senescence: a strong driver alone doesn't make cancer; further hits (e.g. CDKN2A loss) are needed.,M06 worked_example braf
