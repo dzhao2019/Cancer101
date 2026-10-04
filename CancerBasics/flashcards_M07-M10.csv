@@ -1,0 +1,85 @@
+Front,Back,Tags
+What is a clone in tumour evolution?,A population of cells descended from one ancestral cell.,M07 evolution
+Truncal vs branch mutation?,"Truncal (clonal): arose in or before the founder, present in every cancer cell. Branch (subclonal): arose later in one lineage, present in some cancer cells.",M07 evolution
+What is cancer cell fraction (CCF)?,The fraction of cancer cells carrying a mutation; 1.0 = clonal.,M07 clonality
+Nowell's 1976 model in one sentence?,Tumours evolve: random heritable changes plus selection produce successive expanding clones.,M07 evolution
+Expected VAF equation (clonal)?,"VAF = p·m / (p·C + 2(1 − p)); p = purity, C = tumour copy number at the locus, m = mutant copies.",M07 vaf
+CCF from VAF?,CCF = VAF · (p·C + 2(1 − p)) / (p·m).,M07 vaf clonality
+"Expected VAF: clonal het mutation, diploid, purity 0.6?",0.30 (p/2).,M07 vaf
+"Expected VAF: clonal mutation + copy-neutral LOH, purity 0.6?","0.60 (m = 2, C = 2 → p).",M07 vaf loh
+Why can a clonal mutation have a low VAF?,High local copy number with m = 1 (e.g. 1 of 8 copies in an amplicon) or a mutation after whole-genome doubling (1 of 4 copies).,M07 vaf
+Germline het SNP in tumour with copy-neutral LOH keeping ALT: tumour VAF?,(1 + p)/2 — e.g. 0.80 at purity 0.6.,M07 vaf loh
+Expected depth ratio for a CN segment?,R = (p·C + 2(1 − p)) / (p·ψ + 2(1 − p)); ψ = tumour ploidy.,M07 purity_ploidy
+What is purity/ploidy degeneracy?,"Different (purity, ploidy) pairs, e.g. ~2 vs ~4 with all CNs doubled, fit the same depth ratios and BAFs.",M07 purity_ploidy
+How to break a ploidy 2 vs 4 tie?,"SNV multiplicity clusters (m = 1 of 4 after WGD), odd allelic states, orthogonal purity (pathology, known clonal driver VAF, DNA index).",M07 purity_ploidy
+What is whole-genome doubling (WGD)?,"Duplication of the whole chromosome set in a cancer cell; common (~a third of tumours), linked to TP53 loss; ploidy ~3–4.",M07 wgd
+Multiplicity timing: mutation on 2 of 4 copies after WGD?,It arose before the doubling.,M07 timing
+What is ecDNA?,Extrachromosomal circular DNA carrying amplified oncogenes (e.g. EGFR in GBM); unequal segregation drives extreme heterogeneity.,M07 heterogeneity
+Detection power for VAF 0.05 at 60× (≥3 ALT reads)?,About 0.58 — low-VAF subclones are often missed at clinical WGS depth.,M07 low_vaf
+EGFR T790M mechanism?,Gatekeeper mutation restoring ATP affinity → resistance to 1st/2nd-generation EGFR inhibitors; osimertinib targets it.,M07 worked_example egfr
+Osimertinib resistance via EGFR C797S?,C797 is where osimertinib binds covalently; C797S removes the cysteine.,M07 worked_example egfr
+Pre-existing vs induced resistance?,Most resistant subclones pre-exist at low frequency and are selected by therapy; some therapies (temozolomide) are mutagenic.,M07 heterogeneity therapy
+Hallmarks 2022 new dimensions?,Unlocking phenotypic plasticity; non-mutational epigenetic reprogramming; polymorphic microbiomes; senescent cells.,M07 hallmarks
+Why is a truncal driver a better target?,"Every cancer cell carries it, so inhibiting it can hit the whole tumour.",M07 heterogeneity
+Definition of TMB?,Somatic mutations per megabase of sequence examined.,M08 tmb
+Why aren't WGS and panel TMB interchangeable?,"Different variant sets, denominators (≈1 Mb panel vs ~2,900 Mb genome), filters; thresholds (≥10) were validated on a specific panel.",M08 tmb
+Why does high TMB predict checkpoint-inhibitor response?,More mutations → more neoantigens for T cells to recognise once checkpoints are blocked.,M08 tmb immunology
+First tissue-agnostic FDA approval?,Pembrolizumab for MSI-H/dMMR solid tumours (2017).,M08 msi
+MMR IHC: MLH1 + PMS2 lost means?,"An MLH1 problem — germline (Lynch) or, more often in CRC, MLH1 promoter methylation.",M08 msi
+Tests to separate sporadic from Lynch after MLH1 loss in CRC?,BRAF V600E and MLH1 promoter methylation; either favours sporadic.,M08 msi lynch
+Genomic scar components of HRD scores?,"LOH (large LOH regions), TAI (telomeric allelic imbalance), LST (large-scale state transitions).",M08 hrd
+Why can an HRD-scar-positive tumour resist PARP inhibitors?,Scars are history; a reversion mutation can restore HR while scars remain.,M08 hrd
+How are the 96 SBS channels built?,6 pyrimidine-referenced substitution classes × 4 5′ bases × 4 3′ bases.,M08 signatures
+Extraction vs fitting?,Extraction: NMF discovers signatures across many samples. Fitting: estimates known signatures' contributions in one sample.,M08 signatures
+SBS1 and SBS5?,"Clock-like signatures; SBS1 = 5mC deamination (C>T at CpG); SBS5 = flat, unknown aetiology.",M08 signatures
+SBS2/SBS13?,APOBEC3A/3B: C>T and C>G at TCW motifs.,M08 signatures
+SBS3?,"HR deficiency (BRCA1/2, PALB2); flat, hard to fit.",M08 signatures hrd
+SBS4?,Tobacco smoke: C>A with transcriptional strand bias.,M08 signatures
+SBS10a/b?,"POLE proofreading loss → ultramutation, MSS.",M08 signatures
+SBS11?,Temozolomide (C>T).,M08 signatures
+SBS88?,Colibactin from genotoxic E. coli; colorectal.,M08 signatures
+ID6?,Deletions with microhomology — HR deficiency.,M08 signatures hrd
+Chromothripsis WGS pattern?,"Many clustered breakpoints on one/few chromosomes, CN oscillating between 2–3 states — one catastrophic event.",M08 cn_patterns
+Kataegis?,"Clustered APOBEC mutations (C>T/C>G at TCW), often near SV breakpoints.",M08 cn_patterns
+Tandem duplicator phenotypes?,Small (~10 kb) TDs with BRCA1 loss; large TDs with CDK12 loss.,M08 cn_patterns
+1p/19q codeletion?,Diagnostic of oligodendroglioma (with IDH mutation).,M08 cn_patterns
+"Dominant inheritance, recessive at the cell level?",One inherited mutant copy raises risk (50% to each child); the tumour still needs a second hit on the other allele.,M09 genetics
+Penetrance vs expressivity?,Penetrance: probability a carrier gets the disease. Expressivity: how the disease shows up among carriers.,M09 genetics
+BRCA1 vs BRCA2 cancer risks (to 80)?,Breast ~72% vs ~69%; ovarian ~44% vs ~17% (Kuchenbaecker 2017).,M09 brca
+Ashkenazi Jewish founder variants?,"BRCA1 c.68_69del, BRCA1 c.5266dup, BRCA2 c.5946del; ~1 in 40 carry one.",M09 brca
+Lynch syndrome genes?,"MLH1, MSH2, MSH6, PMS2, EPCAM (3′ deletions silence MSH2).",M09 lynch
+How do EPCAM deletions cause Lynch?,Read-through transcription into MSH2 → MSH2 promoter methylation and silencing.,M09 lynch
+Li-Fraumeni core tumours?,"Sarcomas, early breast cancer, brain tumours, adrenocortical carcinoma, leukaemias.",M09 lfs
+Low-VAF TP53 in blood of older treated patient?,"Usually CHIP, not Li-Fraumeni; germline should be ~0.5 and present in non-blood tissue.",M09 lfs chip
+CMMRD?,Constitutional MMR deficiency — biallelic germline MMR variants; childhood cancers incl. hypermutated GBM.,M09 lynch
+Germline sample for heme cancers?,"A non-haematopoietic tissue, e.g. cultured skin fibroblasts — the blood is the tumour.",M09 heme
+Most common germline myeloid predisposition gene in adults?,DDX41.,M09 heme
+ACMG/AMP five classes?,"Pathogenic, likely pathogenic, VUS, likely benign, benign.",M09 acmg
+PVS1?,Very strong pathogenic: predicted null variant in a gene where loss of function causes disease.,M09 acmg
+BA1?,Stand-alone benign: allele frequency > 5% in a population database.,M09 acmg
+ClinVar: what matters besides the label?,"Review status (stars), conflicts, date; records are assertions, not truth.",M09 clinvar
+Why is the germline BRCA2 variant missing from Mutect2 output?,"Mutect2 suppresses variants present in the normal (germline, normal_artifact); run a germline caller on the normal.",M09 pipeline
+Why is PMS2 hard to sequence?,"Pseudogene PMS2CL shares its 3′ exons → low MAPQ, mismapping.",M09 pipeline
+Is a germline variant driving this tumour?,"Look for locus-specific LOH/second hit, a matching phenotype (HRD, MSI), and a tumour type in the syndrome spectrum.",M09 relevance
+Cascade testing?,Testing at-risk relatives (50% for first-degree) for a known familial variant.,M09 ethics
+ACMG secondary findings list?,Genes whose P/LP variants should be reported incidentally in clinical exome/genome sequencing; v3.3 (2025) — check current.,M09 ethics
+Why a splice-aware aligner for RNA-seq?,"Reads span exon–exon junctions (introns removed), e.g. STAR.",M10 rnaseq
+Poly-A vs rRNA depletion?,"Poly-A: clean mRNA, poor on degraded RNA. rRNA depletion: works on FFPE, adds intronic/non-polyA reads.",M10 rnaseq
+TPM?,Transcripts per million: length- then depth-normalised; sums to 10⁶ per sample.,M10 rnaseq
+DV200?,% RNA fragments > 200 nt; integrity metric for FFPE RNA.,M10 qc
+Expression comparator for a single tumour?,Same-tumour-type cohort (e.g. TCGA) and normal tissue of origin (e.g. GTEx).,M10 expression
+Enhancer hijacking example?,"IGH translocations in myeloma (CCND1, NSD2/FGFR3, MAF) → overexpression of an intact gene.",M10 expression
+Two oncogenic fusion mechanisms?,Chimeric protein (BCR::ABL1) or regulatory swap driving an intact partner (TMPRSS2::ERG).,M10 fusions
+Junction reads vs spanning fragments?,Junction: a read crosses the fusion junction (exact exon boundary). Spanning: mates map to different partners.,M10 fusions
+Common fusion false positives?,"Read-through of neighbouring genes, paralogue mismapping, library chimeras, recurrent normal-tissue fusions.",M10 fusions
+EML4::ALK variant 1 junction?,"EML4 exon 13 → ALK exon 20 (kinase domain), in frame; from an inversion on 2p.",M10 worked_example alk
+ALK 5′/3′ imbalance?,Reads only from 3′ ALK exons (20–29) — evidence of a fusion even with unknown partner.,M10 worked_example alk
+TMPRSS2::ERG?,Androgen-responsive TMPRSS2 promoter drives ERG; ~half of prostate cancers in Western cohorts.,M10 fusions
+EGFRvIII?,Deletion of EGFR exons 2–7 → exon 1–8 junction; constitutively active; GBM.,M10 splicing
+AR-V7?,Cryptic-exon AR splice variant lacking the ligand-binding domain; constitutively active in CRPC.,M10 splicing
+SF3B1 mutation effect?,"Cryptic 3′ splice-site usage; MDS-RS, CLL.",M10 splicing
+Low RNA VAF for a nonsense mutation?,NMD — unless the stop is in the last exon.,M10 ase nmd
+RNA-only A>G mismatch?,RNA editing by ADAR (A→I read as G).,M10 ase
+Monoallelic expression without DNA LOH?,Suggests epigenetic silencing of one allele — a second hit invisible to WGS.,M10 ase
+DNA–RNA genotype concordance?,QC check that DNA and RNA come from the same patient (catches swaps).,M10 qc
+What RNA adds to WGS (top 4)?,Fusion expression/frame; overexpression of amplified genes; epigenetic silencing; observed mis-splicing/NMD.,M10 wgts
